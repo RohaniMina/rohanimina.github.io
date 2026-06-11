@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mina Rohani | AI Product Marketing</title>
+<meta name="description" content="Mina Rohani, PhD. Product marketer for AI and developer technology. Positioning, narrative, and adoption strategy grounded in research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF7F2; --card:#FFFFFF; --ink:#2C2824; --soft:#6B6258;
+    --rose:#B0626F; --sage:#7E8F78; --line:#E8E0D4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+  a{color:var(--rose);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:2px}
+
+  /* Nav */
+  nav{position:sticky;top:0;background:rgba(250,247,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;max-width:920px;margin:0 auto}
+  .nav-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);letter-spacing:.02em}
+  .nav-links{display:flex;gap:22px}
+  .nav-links a{color:var(--soft);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+  .nav-links a:hover{color:var(--rose);text-decoration:none}
+
+  /* Hero */
+  header{padding:96px 0 72px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:18px}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.4rem,5.5vw,3.9rem);line-height:1.12;max-width:18ch}
+  h1 .accent{font-style:italic;position:relative;white-space:nowrap}
+  h1 .accent svg{position:absolute;left:0;bottom:-.08em;width:100%;height:.32em}
+  .lede{margin-top:26px;max-width:58ch;color:var(--soft);font-size:1.05rem}
+  .hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.88rem;color:var(--soft)}
+  .hero-meta span b{color:var(--ink);font-weight:600}
+
+  /* Sections */
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:2rem;margin-bottom:8px}
+  .section-sub{color:var(--soft);max-width:60ch;margin-bottom:40px}
+
+  /* Work cards */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .case{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--sage);border-radius:6px;padding:26px 26px 22px;display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease}
+  .case:nth-child(odd){border-left-color:var(--rose)}
+  .case:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(44,40,36,.07)}
+  .case .tag{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--sage);margin-bottom:12px}
+  .case:nth-child(odd) .tag{color:var(--rose)}
+  .case h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.45rem;line-height:1.25;margin-bottom:10px}
+  .case p{font-size:.92rem;color:var(--soft);flex:1}
+  .case .outcome{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:.85rem;color:var(--ink)}
+  .case .outcome b{font-weight:600}
+  .case .visit{margin-top:12px;font-size:.85rem;font-weight:500}
+
+  /* Publications */
+  .pub{padding:20px 0;border-bottom:1px dashed var(--line)}
+  .pub:last-of-type{border-bottom:none}
+  .pub h3{font-size:1rem;font-weight:600;margin-bottom:4px}
+  .pub .venue{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--rose)}
+  .pub p{font-size:.9rem;color:var(--soft);margin-top:6px;max-width:68ch}
+  .recognition{margin-top:36px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px 26px}
+  .recognition h3{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:12px}
+  .recognition ul{list-style:none}
+  .recognition li{font-size:.92rem;padding:6px 0;color:var(--soft)}
+  .recognition li b{color:var(--ink);font-weight:600}
+
+  /* About */
+  .about-cols{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
+  .about-cols p{margin-bottom:16px;color:var(--soft)}
+  .about-cols p:first-child{color:var(--ink)}
+  .aside{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px 26px}
+  .aside h3{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+  .aside p{font-size:.9rem;color:var(--soft)}
+
+  /* Contact */
+  footer{padding:80px 0 60px;text-align:center}
+  footer h2{font-size:2.2rem}
+  footer p{color:var(--soft);max-width:46ch;margin:14px auto 30px}
+  .btn{display:inline-block;background:var(--rose);color:#fff;padding:13px 30px;border-radius:4px;font-weight:500;font-size:.95rem;letter-spacing:.02em}
+  .btn:hover{background:#9d5260;text-decoration:none}
+  .foot-links{margin-top:26px;display:flex;justify-content:center;gap:26px;font-size:.88rem}
+  .colophon{margin-top:54px;font-size:.78rem;color:var(--soft)}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .case{transition:none}
+  }
+  @media(max-width:720px){
+    .grid{grid-template-columns:1fr}
+    .about-cols{grid-template-columns:1fr}
+    header{padding:64px 0 52px}
+    .nav-links{gap:14px}
+    .nav-links a{font-size:.74rem}
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <span class="nav-name">Mina Rohani</span>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#writing">Publications</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="wrap">
+  <p class="eyebrow">AI Product Marketing · San Francisco Bay Area</p>
+  <h1>I help people <span class="accent">adopt<svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 30 3, 60 11, 118 5" fill="none" stroke="#B0626F" stroke-width="2.5" stroke-linecap="round"/></svg></span> technology that intimidates them.</h1>
+  <p class="lede">Product marketer with a PhD in consumer behavior, working at the intersection of AI, developer tools, and enterprise buyers. I have researched developer adoption inside Meta and Google, led go-to-market for an agentic AI platform, taught marketing as university faculty, and I build with AI-assisted development tools daily. Positioning, in my work, is a research discipline: messaging earns trust when it matches what the product truly does.</p>
+  <div class="hero-meta">
+    <span><b>Meta</b> · Developer Experience research</span>
+    <span><b>Google</b> · Quantitative UX research</span>
+    <span><b>Aktus AI</b> · AI product marketing</span>
+    <span><b>Huawei</b> · Enterprise PMM</span>
+  </div>
+</header>
+
+<section id="work" class="wrap">
+  <h2>Selected work</h2>
+  <p class="section-sub">Six projects that show the same throughline from different angles: research the buyer, respect the technology, and build narratives that survive contact with technical audiences.</p>
+  <div class="grid">
+
+    <article class="case reveal">
+      <p class="tag">Builder · Live product</p>
+      <h3>Bellefolio: an AI marketplace, built end to end</h3>
+      <p>Conceived, built, and launched an LLM-powered B2C marketplace from zero using AI-assisted development workflows. I own the positioning, pricing and packaging, and go-to-market, and I designed the multi-turn prompt systems behind its discovery and personalization features, refined through user testing.</p>
+      <p class="outcome"><b>Why it matters:</b> when I market developer AI, I speak as a practitioner of it.</p>
+      <p class="visit"><a href="https://bellefolio.vercel.app" target="_blank" rel="noopener">Visit the live product →</a></p>
+    </article>
+
+    <article class="case reveal">
+      <p class="tag">Go-to-market · Agentic AI</p>
+      <h3>GTM positioning for an agentic AI platform</h3>
+      <p>At Aktus AI, I owned end-to-end positioning for a platform automating expert-grade development reports for an enterprise client in a highly regulated industry. Twelve subject-matter-expert interviews and fourteen annotated expert reports revealed that factual accuracy alone does not create trust; logic clarity, source transparency, and tone alignment do. Those findings shaped the prompt architecture, the product, and the sales narrative together.</p>
+      <p class="outcome"><b>Outcome:</b> a skeptical enterprise client became the platform's internal champion.</p>
+    </article>
+
+    <article class="case reveal">
+      <p class="tag">Research · Developer adoption</p>
+      <h3>How engineering teams adopt developer tools</h3>
+      <p>Embedded in Meta's Developer Experience organization for over a year, I led nine-plus mixed-methods studies on developer tools and AI-assisted workflows across Instagram, WhatsApp, hardware, and infrastructure. I synthesized feedback from thirty-plus product areas into roadmap recommendations for senior leadership, and co-developed an AI-driven text-analysis system later used as a training signal for an internal LLM.</p>
+      <p class="outcome"><b>Outcome:</b> adoption barriers surfaced and prioritized; insights informed product investment decisions.</p>
+    </article>
+
+    <article class="case reveal">
+      <p class="tag">Research · Prioritization</p>
+      <h3>Ranking 25 developer journeys with evidence</h3>
+      <p>At Google, I led a company-wide MaxDiff study across 25 internal developer and employee tool journeys: balanced experimental design, roughly 600 responses, and Hierarchical Bayes modeling to produce individual-level utility scores. The output was a defensible, ranked investment roadmap where every journey had previously seemed equally important.</p>
+      <p class="outcome"><b>Outcome:</b> contributed to a 6% improvement in user satisfaction the following quarter.</p>
+    </article>
+
+    <article class="case reveal">
+      <p class="tag">Enterprise PMM · Technical enablement</p>
+      <h3>Marketing carrier-grade networks at Huawei</h3>
+      <p>My PMM foundation: B2B marketing for TCP/IP network-layer routers powering national telecommunications networks. I met regularly with client executives, ran technical workshops on QoS, MPLS and VPN design, and security for audiences from network engineers to leadership, and built the evidence and documentation that made our value clear before RFPs were submitted.</p>
+      <p class="outcome"><b>Outcome:</b> contributed to 15% revenue and market share growth across enterprise product lines.</p>
+    </article>
+
+    <article class="case reveal">
+      <p class="tag">Advisory · Strategic narrative</p>
+      <h3>Multi-audience GTM for a dual-use AI startup</h3>
+      <p>Advising an early-stage AI autonomy startup navigating procurement panels, enterprise buyers, and investors at once. I developed differentiated value propositions and audience-specific narratives, each calibrated for technical depth and decision criteria, and architected the phased roadmap for its transition from single-vertical SaaS to multi-vertical platform.</p>
+      <p class="outcome"><b>Why it matters:</b> one product, three audiences, three narratives that never contradict each other.</p>
+    </article>
+
+  </div>
+</section>
+
+<section id="writing" class="wrap">
+  <h2>Publications &amp; recognition</h2>
+  <p class="section-sub">Peer-reviewed research on trust, adoption, and buyer behavior; the academic backbone of how I practice product marketing.</p>
+
+  <div class="pub reveal">
+    <h3>Sensemaking and Error Attenuation on Customer Behavior</h3>
+    <p class="venue">Journal of the Academy of Marketing Science, 2024 · featured in AMS Sparks</p>
+    <p>How structured touchpoints help organizations rebuild trust and sustain customer relationships after things go wrong; directly applicable to enterprise adoption and customer lifecycle strategy.</p>
+  </div>
+
+  <div class="pub reveal">
+    <h3>Self-Determination Theory &amp; Customer Revenge Behavior</h3>
+    <p class="venue">Journal of Consumer Marketing, 2024</p>
+    <p>Buyer psychology, trust formation, and behavior change: the mechanics underneath every positioning decision I make.</p>
+  </div>
+
+  <div class="recognition reveal">
+    <h3>Recognition</h3>
+    <ul>
+      <li><b>Canada Top Marketing Professor</b> (2022)</li>
+      <li><b>Google Core-UX Performance Spot Bonus</b> (2019)</li>
+      <li><b>Huawei</b> Outstanding Performance &amp; Best Marketing Presentation Awards</li>
+      <li><b>20+ invited talks and workshops</b> at Google, Meta, Blue Owl, Aeroplan, SFSU, Santa Clara University, HEC Montréal, and industry events</li>
+    </ul>
+  </div>
+</section>
+
+<section id="about" class="wrap">
+  <h2>About</h2>
+  <div class="about-cols">
+    <div>
+      <p>The throughline of my career is translation. As a professor, I translated analytics and consumer behavior for students from undergraduates to executives. As a researcher inside Meta and Google, I translated what engineers said into what product teams built. As a product marketer, I translate what AI systems do into reasons people trust them.</p>
+      <p>I hold a PhD in Marketing and Consumer Behavior from HEC Montréal, where my research focused on trust formation and adoption behavior, the same questions I now work on with AI products. I have taught at Saint Mary's College of California and the University of Saskatchewan, and I came to marketing from an engineering education, which is probably why technical products feel like home.</p>
+      <p>These days I split my time between building Bellefolio, advising early-stage AI companies, and studying how the newest generation of AI development tools is changing who gets to build software.</p>
+    </div>
+    <div class="aside reveal">
+      <h3>Off the clock</h3>
+      <p>I play piano and the Daf, a Persian frame drum, and I love jazz. The connection to my work is real: I have published research on how music shapes consumer behavior. Rhythm, tension, and resolution turn out to matter in narratives too.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" class="wrap">
+  <h2 style="font-family:'Cormorant Garamond',serif">Let's talk</h2>
+  <p>If you're working on AI products that need clearer stories, or developer tools that deserve wider adoption, I'd enjoy the conversation.</p>
+  <a class="btn" href="mailto:mina.rohani1359@gmail.com">Email me</a>
+  <div class="foot-links">
+    <a href="https://www.linkedin.com/in/rohanimina" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://bellefolio.vercel.app" target="_blank" rel="noopener">Bellefolio</a>
+  </div>
+  <p class="colophon">Mina Rohani · San Francisco Bay Area</p>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    items.forEach(el => io.observe(el));
+  } else {
+    items.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
