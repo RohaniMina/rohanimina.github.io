@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mina Rohani · UX Research</title>
+<meta name="description" content="Mina Rohani, PhD. Mixed-methods UX researcher. Founder-led product research, trustworthy AI in regulated industries, developer experience at Meta, quantitative prioritization at Google, and published behavioral research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1; --surface:#FFFFFF; --border:#E8E5DF;
+  --t-primary:#1A1A1A; --t-secondary:#5F5952; --t-muted:#9C958B;
+  --accent:#2448BB; --accent-light:#EEF1FB; --accent-border:#C5D0F0;
+  /* richer per-case accents */
+  --c-build:#2B8A8F; --c-build-bg:#E6F4F4;
+  --c-ai:#6D4FB0; --c-ai-bg:#EFEAF8;
+  --c-meta:#2C6FB5; --c-meta-bg:#E7F0FA;
+  --c-quant:#C06A2E; --c-quant-bg:#FBEFE3;
+  --c-phd:#B33B6B; --c-phd-bg:#FBE9F0;
+  --c-method:#4E8A5E;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif;background:var(--bg);color:var(--t-primary);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.page{max-width:920px;margin:0 auto;padding:0 40px 80px}
+
+nav{position:sticky;top:0;z-index:30;background:rgba(245,244,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:920px;margin:0 auto;padding:13px 40px;display:flex;justify-content:space-between;align-items:center}
+.nav-name{font-size:14px;font-weight:700;letter-spacing:-.2px}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-size:10.5px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--t-muted)}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+
+/* hero with gradient mesh */
+.cover{position:relative;overflow:hidden;border-bottom:1px solid var(--border);padding:84px 40px 64px;
+  background:
+    radial-gradient(circle at 88% 8%, #EFEAF833 0, transparent 42%),
+    radial-gradient(circle at 8% 92%, #E6F4F44d 0, transparent 45%),
+    radial-gradient(circle at 60% 50%, #FBE9F022 0, transparent 55%),
+    var(--surface);}
+.cover-inner{position:relative;max-width:920px;margin:0 auto;z-index:2}
+.cover-eyebrow{font-size:11px;font-weight:600;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.cover h1{font-size:44px;font-weight:800;letter-spacing:-1.6px;line-height:1.07;margin-bottom:18px;max-width:17ch}
+.cover h1 span{color:var(--accent)}
+.cover-desc{font-size:15.5px;color:var(--t-secondary);max-width:640px;line-height:1.65;margin-bottom:32px}
+.cover-meta{display:flex;gap:30px;flex-wrap:wrap}
+.meta-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--t-muted);margin-bottom:3px}
+.meta-value{font-size:13px;color:var(--t-secondary)}
+.meta-value a{color:var(--accent)}
+
+.section{padding:56px 0 0}
+.section-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t-muted);margin-bottom:6px}
+.section-title{font-size:25px;font-weight:800;letter-spacing:-.7px;margin-bottom:8px}
+.section-desc{font-size:13.5px;color:var(--t-secondary);max-width:660px;line-height:1.65;margin-bottom:30px}
+.divider{border:none;border-top:1px solid var(--border);margin:56px 0 0}
+
+.principles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.principle-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;overflow:hidden}
+.principle-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px}
+.principle-card:nth-child(1)::before{background:var(--c-build)}
+.principle-card:nth-child(2)::before{background:var(--c-ai)}
+.principle-card:nth-child(3)::before{background:var(--c-quant)}
+.principle-card:nth-child(4)::before{background:var(--c-phd)}
+.principle-num{font-size:11px;font-weight:700;color:var(--t-muted);margin-bottom:10px;letter-spacing:.5px}
+.principle-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.principle-text{font-size:12.5px;color:var(--t-secondary);line-height:1.55}
+
+/* case study */
+.cs{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px}
+.cs-top{height:5px}
+.cs-header{padding:24px 28px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.cs-id{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;margin-bottom:9px}
+.cs-title{font-size:21px;font-weight:800;letter-spacing:-.5px;line-height:1.22}
+.cs-badge{flex-shrink:0;font-size:11px;font-weight:600;padding:6px 13px;border-radius:20px;white-space:nowrap}
+.cs-body{padding:26px 28px}
+.cs-summary{font-size:14px;color:var(--t-secondary);line-height:1.68;margin-bottom:24px;max-width:68ch}
+.cs-summary b{color:var(--t-primary);font-weight:600}
+
+.block{margin-bottom:24px}
+.block:last-child{margin-bottom:0}
+.block-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--t-muted);margin-bottom:12px}
+.block ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.block li{font-size:13px;color:var(--t-secondary);line-height:1.55;padding-left:18px;position:relative}
+.block li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--t-muted)}
+.block li b{color:var(--t-primary);font-weight:600}
+.rq li::before{display:none}
+.rq li{padding-left:0;display:flex;gap:12px;align-items:baseline}
+.rq .tag{flex-shrink:0;font-size:11px;font-weight:800;letter-spacing:.3px;width:36px}
+
+/* quote / problem callout */
+.quote{font-size:17px;font-weight:600;line-height:1.5;color:var(--t-primary);padding:4px 0 4px 20px;border-left:3px solid;margin:2px 0 4px;letter-spacing:-.2px}
+
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 0}
+.kpi{border-radius:10px;padding:16px 17px;border:1px solid var(--border);background:var(--bg)}
+.kpi-l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t-muted);margin-bottom:7px}
+.kpi-v{font-size:26px;font-weight:800;letter-spacing:-1px;line-height:1}
+.kpi-s{font-size:10.5px;color:var(--t-secondary);margin-top:6px;line-height:1.4}
+
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
+thead th{text-align:left;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--t-muted);padding:0 12px 8px;border-bottom:1px solid var(--border)}
+thead th.num{text-align:right}
+tbody td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--t-secondary)}
+tbody td:first-child{color:var(--t-primary)}
+tbody tr:last-child td{border-bottom:none}
+td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--t-primary)}
+.bar-track{height:5px;background:var(--border);border-radius:3px;margin-top:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+
+.phases{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.phase{font-size:11px;padding:6px 12px;border-radius:20px;border:1px solid var(--border);background:var(--bg);color:var(--t-secondary);display:flex;align-items:center;gap:7px}
+.phase .n{font-weight:800}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.panel{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:18px}
+.panel h5{font-size:12.5px;font-weight:700;margin-bottom:10px}
+.panel ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.panel li{font-size:12px;color:var(--t-secondary);line-height:1.5;padding-left:15px;position:relative}
+.panel li::before{content:"";position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--t-muted)}
+
+.finding{border-radius:10px;padding:17px 19px;margin:4px 0}
+.finding .ft{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.finding p{font-size:14px;color:var(--t-primary);line-height:1.5}
+.finding p b{font-weight:700}
+
+.stack-grid{display:flex;flex-wrap:wrap;gap:7px}
+.stack-chip{font-size:11px;font-weight:500;color:var(--t-secondary);background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:5px 10px}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.cta{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:8px;border:1px solid}
+.cta.solid{color:#fff;border-color:transparent}
+.cta:hover{text-decoration:none;opacity:.92}
+
+/* expertise */
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.exp-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.exp-card h4{font-size:12.5px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.exp-card h4 .sw{width:10px;height:10px;border-radius:3px}
+.exp-tags{display:flex;flex-wrap:wrap;gap:7px}
+.tagchip{font-size:11.5px;color:var(--t-secondary);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:5px 10px}
+
+/* timeline */
+.tl{list-style:none}
+.tl-item{display:grid;grid-template-columns:62px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--border);align-items:start}
+.tl-item:last-child{border-bottom:none}
+.tl-year{font-size:13px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:1px}
+.tl-org{font-size:14px;font-weight:700;color:var(--t-primary)}
+.tl-role{font-size:12.5px;color:var(--t-secondary);margin-top:1px}
+
+footer{margin-top:56px;padding:48px 40px 44px;border-radius:16px;text-align:center;
+  background:radial-gradient(circle at 20% 0,#EFEAF84d 0,transparent 50%),radial-gradient(circle at 90% 100%,#E6F4F44d 0,transparent 50%),var(--surface);border:1px solid var(--border)}
+footer h3{font-size:24px;font-weight:800;letter-spacing:-.6px;margin-bottom:8px}
+footer p{font-size:13.5px;color:var(--t-secondary);max-width:46ch;margin:0 auto 22px}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:12px 28px;border-radius:9px}
+.btn:hover{background:#1d3a9c;text-decoration:none}
+.foot-links{margin-top:22px;display:flex;justify-content:center;gap:22px;font-size:12.5px}
+.colophon{margin-top:34px;font-size:11.5px;color:var(--t-muted)}
+
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+
+@media(max-width:700px){
+  .cover{padding:52px 22px 44px}.cover h1{font-size:33px}
+  .page{padding:0 22px 60px}
+  .nav-inner{padding:13px 22px}.nav-links{gap:12px}.nav-links a{font-size:9.5px}
+  .principles{grid-template-columns:1fr 1fr}
+  .kpis{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
+  .exp-grid{grid-template-columns:1fr}
+  .cs-header{flex-direction:column}
+  .tl-item{grid-template-columns:50px 1fr;gap:14px}
+  footer{padding:40px 22px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Mina Rohani</span>
+    <div class="nav-links">
+      <a href="#approach">Approach</a>
+      <a href="#work">Case studies</a>
+      <a href="#expertise">Methods</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-eyebrow">UX Research · Mixed Methods · San Francisco Bay Area</div>
+    <h1>Research that drives the <span>decision</span>, not just the deck.</h1>
+    <p class="cover-desc">I'm a mixed-methods UX researcher with a PhD in consumer behavior. I've validated a product by building it myself, designed the research program behind an agentic AI system in a regulated industry, scaled qualitative insight inside Meta, ranked investment priorities at Google, and published behavioral research in a top marketing journal. The throughline: rigorous research, carried all the way through to what gets shipped.</p>
+    <div class="cover-meta">
+      <div><div class="meta-label">Focus</div><div class="meta-value">Product discovery · AI systems · Adoption &amp; trust</div></div>
+      <div><div class="meta-label">Email</div><div class="meta-value"><a href="mailto:mina.rohani1359@gmail.com">mina.rohani1359@gmail.com</a></div></div>
+      <div><div class="meta-label">Find me</div><div class="meta-value"><a href="https://www.linkedin.com/in/rohanimina" target="_blank" rel="noopener">LinkedIn</a></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="section" id="approach">
+    <div class="section-label">01 — Approach</div>
+    <div class="section-title">How I work</div>
+    <div class="section-desc">Four principles, consistent across every project below.</div>
+    <div class="principles">
+      <div class="principle-card reveal"><div class="principle-num">01</div><div class="principle-title">Start with the why</div><div class="principle-text">Understand the core problem and the human need first. The method comes second.</div></div>
+      <div class="principle-card reveal"><div class="principle-num">02</div><div class="principle-title">Method agnostic</div><div class="principle-text">The question chooses the method: qualitative, quantitative, or both. Never the reverse.</div></div>
+      <div class="principle-card reveal"><div class="principle-num">03</div><div class="principle-title">Action-oriented</div><div class="principle-text">The goal is decision-ready insight that lets teams move with confidence, not data for its own sake.</div></div>
+      <div class="principle-card reveal"><div class="principle-num">04</div><div class="principle-title">Carry it through</div><div class="principle-text">The best insight changes what ships. I stay close to the build so nothing is lost in handoff.</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section" id="work">
+    <div class="section-label">02 — Case studies</div>
+    <div class="section-title">From question to decision</div>
+    <div class="section-desc">Rigorous research, deliberately carried through to the decision: a product I researched and built, an AI system's architecture, qualitative insight at scale, a pre-launch validation, published behavioral science, and a Fortune 500 investment roadmap.</div>
+
+    <!-- CS1: BELLEFOLIO -->
+    <article class="cs reveal">
+      <div class="cs-top" style="background:var(--c-build)"></div>
+      <div class="cs-header">
+        <div>
+          <div class="cs-id" style="color:var(--c-build)">Case study 01 · Bellefolio · founder-led research</div>
+          <div class="cs-title">I couldn't find the right stylist, so I researched and built an AI that could</div>
+        </div>
+        <span class="cs-badge" style="color:var(--c-build);background:var(--c-build-bg)">Discovery → ship</span>
+      </div>
+      <div class="cs-body">
+        <p class="cs-summary">Bellefolio began as my own frustration: every platform I tried showed overall ratings for a salon, never expertise by service. I needed someone exceptional at balayage specifically, not someone with four stars for everything. That frustration became a research question, and rather than stop at a slide, I ran the full discovery process and then <b>built the product to validate the insight.</b></p>
+
+        <div class="quote" style="border-color:var(--c-build)">"Is this just me, or is there a real gap in the market?"</div>
+
+        <div class="block">
+          <div class="block-label">Research questions</div>
+          <ul class="rq">
+            <li><span class="tag" style="color:var(--c-build)">RQ1</span><span>Is the "expertise by service, not by venue" gap real, or just my own preference?</span></li>
+            <li><span class="tag" style="color:var(--c-build)">RQ2</span><span>Where do existing booking platforms break down for clients and for stylists?</span></li>
+            <li><span class="tag" style="color:var(--c-build)">RQ3</span><span>What is the core behavioral need a better product would have to serve?</span></li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Discovery &amp; validation</div>
+          <ul>
+            <li><b>15+ customer discovery interviews</b> with salon clients and independent stylists, exploring how each side actually makes and evaluates a match.</li>
+            <li><b>Competitive audit</b> of Yelp, StyleSeat, Booksy, and Vagaro; I mapped where every existing solution broke down and why venue-level ratings fail a service-level decision.</li>
+            <li><b>Journey mapping</b> across both sides of the marketplace to locate the exact point where intent and result diverge.</li>
+          </ul>
+          <div class="finding" style="background:var(--c-build-bg)">
+            <div class="ft" style="color:var(--c-build)">Core behavioral insight</div>
+            <p>Clients don't want to browse, <b>they want to be matched.</b> Stylists don't want a directory listing, <b>they want a portfolio that grows with their career.</b> The market needed a service-specific matching layer, not another booking aggregator.</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">From insight to shipped product</div>
+          <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;margin-bottom:14px">The insight became the narrative; the narrative became the product. Using AI-assisted development as my build partner, I shipped a full-stack, mobile-first AI product, then kept testing it against real use in a build-measure-learn loop.</p>
+          <div class="stack-grid">
+            <span class="stack-chip">AI voice agent (Claude)</span>
+            <span class="stack-chip">Speech recognition + synthesis (Deepgram · ElevenLabs)</span>
+            <span class="stack-chip">Stylist &amp; salon discovery (Foursquare)</span>
+            <span class="stack-chip">Secure auth · Stripe payments</span>
+            <span class="stack-chip">React · FastAPI · PostgreSQL</span>
+            <span class="stack-chip">Deployed on Vercel · Render</span>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Why it matters</div>
+          <div class="kpis">
+            <div class="kpi"><div class="kpi-l">Product</div><div class="kpi-v" style="color:var(--c-build)">0→1</div><div class="kpi-s">live, end-to-end build</div></div>
+            <div class="kpi"><div class="kpi-l">Discovery</div><div class="kpi-v">15+</div><div class="kpi-s">interviews · 4-platform audit</div></div>
+            <div class="kpi"><div class="kpi-l">Research span</div><div class="kpi-v">R→D</div><div class="kpi-s">discovery straight to shipped design</div></div>
+          </div>
+          <div class="cta-row" style="margin-top:16px">
+            <a class="cta solid" style="background:var(--c-build)" href="https://bellefolio.vercel.app/" target="_blank" rel="noopener">Try Bellefolio live →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS2: AI STARTUP -->
+    <article class="cs reveal">
+      <div class="cs-top" style="background:var(--c-ai)"></div>
+      <div class="cs-header">
+        <div>
+          <div class="cs-id" style="color:var(--c-ai)">Case study 02 · AI startup · highly regulated industry</div>
+          <div class="cs-title">Designing trustworthy AI for regulated workflows</div>
+        </div>
+        <span class="cs-badge" style="color:var(--c-ai);background:var(--c-ai-bg)">Research → architecture</span>
+      </div>
+      <div class="cs-body">
+        <p class="cs-summary">A startup set out to automate five expert-grade report types in real estate development: documents traditionally hand-built by consultants over months, in a highly regulated domain. As Lead AI &amp; UX Research Strategist, I ran an eighteen-week research program where research didn't just inform the product; <b>it became the AI system's architecture.</b></p>
+
+        <div class="block">
+          <div class="block-label">Research questions</div>
+          <ul class="rq">
+            <li><span class="tag" style="color:var(--c-ai)">RQ1</span><span>What makes an AI-generated report trustworthy?</span></li>
+            <li><span class="tag" style="color:var(--c-ai)">RQ2</span><span>Where does generalized AI fail in regulated environments?</span></li>
+            <li><span class="tag" style="color:var(--c-ai)">RQ3</span><span>How can UX research drive prompt-system architecture?</span></li>
+          </ul>
+          <div class="phases" style="margin-top:14px">
+            <span class="phase"><span class="n" style="color:var(--c-ai)">1</span>Qualitative discovery</span>
+            <span class="phase"><span class="n" style="color:var(--c-ai)">2</span>Process modeling</span>
+            <span class="phase"><span class="n" style="color:var(--c-ai)">3</span>Quantitative validation</span>
+            <span class="phase"><span class="n" style="color:var(--c-ai)">4</span>Prompt engineering</span>
+            <span class="phase"><span class="n" style="color:var(--c-ai)">5</span>Design integration</span>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Phases 1–2 · Listening before building</div>
+          <ul>
+            <li>12 subject-matter-expert interviews (urban planning, marketing, energy, finance) analyzed with a rapid mixed-matrix method, plus 14 expert reports annotated for structure, logic, and tone to reverse-engineer what "good" looked like.</li>
+            <li>Modeled all five report workflows in BPMN, identifying 25 to 35 subprocesses per report and validating each with experts; the result was a modular, AI-friendly architecture.</li>
+          </ul>
+          <div class="finding" style="background:var(--c-ai-bg)">
+            <div class="ft" style="color:var(--c-ai)">Headline finding</div>
+            <p><b>Factual accuracy alone does not create trust.</b> Logic clarity, source transparency, regulation visibility, and professional tone alignment do.</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Phase 3 · Measuring trust</div>
+          <div class="kpis">
+            <div class="kpi"><div class="kpi-l">Survey participants</div><div class="kpi-v">82</div><div class="kpi-s">domain pros · 82% completion</div></div>
+            <div class="kpi"><div class="kpi-l">Instrument</div><div class="kpi-v">21</div><div class="kpi-s">items: ratings, rankings, open text</div></div>
+            <div class="kpi"><div class="kpi-l">Baseline trust</div><div class="kpi-v" style="color:var(--c-ai)">39%</div><div class="kpi-s">a precise diagnosis to fix</div></div>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Phases 4–5 · Research became architecture</div>
+          <div class="duo">
+            <div class="panel">
+              <h5>Design as prompt system</h5>
+              <ul>
+                <li>Parameterized prompts built directly from the BPMN models.</li>
+                <li>Function calling and RAG integrated for consistency and grounding.</li>
+                <li>Partnered with frontend and backend engineering on implementation.</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h5>Human experts in the loop</h5>
+              <ul>
+                <li>SME walkthroughs scored outputs on clarity, logic, tone, and compliance rubrics.</li>
+                <li>Structured surveys plus interviews fed every iteration.</li>
+                <li>Annotated prompt logic delivered straight to engineers.</li>
+              </ul>
+            </div>
+          </div>
+          <ul style="margin-top:14px">
+            <li><b>RQ1 answered:</b> trust = explainability, citation, context → prompt logic redesigned to display assumptions and cite sources prominently.</li>
+            <li><b>RQ2 answered:</b> generalized AI fails on regulation → region-tuned logic and formula-level integration replaced generic generation.</li>
+            <li><b>RQ3 answered:</b> the prompt workflow itself became the product specification. Report automation reached 100% completion on three of five report types during my engagement.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS3: META -->
+    <article class="cs reveal">
+      <div class="cs-top" style="background:var(--c-meta)"></div>
+      <div class="cs-header">
+        <div>
+          <div class="cs-id" style="color:var(--c-meta)">Case study 03 · Meta · Developer Experience</div>
+          <div class="cs-title">Scaling qualitative insight for the developer experience</div>
+        </div>
+        <span class="cs-badge" style="color:var(--c-meta);background:var(--c-meta-bg)">Qual at scale</span>
+      </div>
+      <div class="cs-body">
+        <p class="cs-summary">Meta's quarterly Developer Experience survey guides strategic investment in internal tools: 13 to 15 open-ended questions, 5,000 to 10,000 responses per question, analyzed by 30+ partner teams with no shared standards. The result was inconsistent insight that was hard to present cohesively to leadership. I designed a four-project program that turned scattered analysis into <b>one harmonized system.</b></p>
+
+        <div class="block">
+          <div class="block-label">The program</div>
+          <div class="duo">
+            <div class="panel"><h5>3.1 · Baseline a codebook <span style="color:var(--t-muted);font-weight:400">· 4 wks</span></h5><ul><li>Engineers describe the same tool many ways (VSCODE, VS Code, vsc, typos). Abductive coding with expert validation produced 300+ standardized keywords, socialized until the codebook became the shared standard.</li></ul></div>
+            <div class="panel"><h5>3.2 · Thematic analysis at scale <span style="color:var(--t-muted);font-weight:400">· 4 wks</span></h5><ul><li>Full-lifecycle thematic analysis turning thousands of responses into themes, proportions, and exemplars; a broad readout validated quant trends with qual evidence and opened new Data Science collaborations.</li></ul></div>
+            <div class="panel"><h5>3.3 · Cognitive testing framework <span style="color:var(--t-muted);font-weight:400">· 2 wks</span></h5><ul><li>A repeatable five-phase framework (think-aloud interviews, matrix analysis, revision) built to a two-week cadence; adopted by multiple teams and extended to user testing.</li></ul></div>
+            <div class="panel"><h5>3.4 · AI-assisted analysis <span style="color:var(--t-muted);font-weight:400">· 2 wks</span></h5><ul><li>Triangulated evaluation of manual coding vs. LDA topic modeling vs. an LLM workflow against human-labeled benchmarks, judged on accuracy, efficiency, and fit-for-purpose.</li></ul></div>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">The automation verdict</div>
+          <ul>
+            <li><b>Manual coding:</b> gold-standard validity, but ~90 minutes per 100 responses; untenable at survey scale.</li>
+            <li><b>Topic modeling (LDA):</b> fast, but keyword clusters miss granular, tool-specific pain points and can't answer stakeholder questions interactively.</li>
+            <li><b>LLM workflow (recommended):</b> summarized 117 responses (6,000 words) into themes in minutes, reached 84% classification agreement with human annotators, and surfaced emerging themes; it informed productionization of AI-assisted thematic analysis, and the system later served as a training signal for an internal model.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Program impact</div>
+          <div class="kpis">
+            <div class="kpi"><div class="kpi-l">Teams aligned</div><div class="kpi-v">30+</div><div class="kpi-s">on one harmonized system</div></div>
+            <div class="kpi"><div class="kpi-l">Shared codebook</div><div class="kpi-v">300+</div><div class="kpi-s">validated keywords</div></div>
+            <div class="kpi"><div class="kpi-l">LLM agreement</div><div class="kpi-v" style="color:var(--c-meta)">84%</div><div class="kpi-s">vs. human coders</div></div>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Alongside the survey · tool-specific studies (Metamate)</div>
+          <p style="font-size:13px;color:var(--t-secondary);line-height:1.6;margin-bottom:12px">In parallel, I ran focused studies on Meta's AI-assisted developer tools to understand where an AI assistant fits into the real coding workflow:</p>
+          <ul>
+            <li><b>Video ethnography</b> with software engineers (45–60 minute sessions in their natural work environments) on how they explore and use AI-assisted code actions in VS Code; I built a journey framework and flowchart of the developer's path and the moments where AI could integrate.</li>
+            <li><b>Cognitive testing</b> of the tool's sentiment measurement and <b>semi-structured in-depth interviews</b> on its response-feedback experience, each turned into concrete usability and product recommendations.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS4: TELEPORT -->
+    <article class="cs reveal">
+      <div class="cs-top" style="background:var(--c-ent)"></div>
+      <div class="cs-header">
+        <div>
+          <div class="cs-id" style="color:var(--c-ent)">Case study 04 · Meta · pre-launch validation (Teleport)</div>
+          <div class="cs-title">Validating a telemetry tool before launch</div>
+        </div>
+        <span class="cs-badge" style="color:var(--c-ent);background:var(--c-ent-bg)">Quasi-experiment · launch readiness</span>
+      </div>
+      <div class="cs-body">
+        <p class="cs-summary">Before Meta shipped Teleport, a backend telemetry tool for Windows, the team needed to know two things: did it capture user activity correctly, and did it harm the experience of any other tool? I led the research that answered both, <b>turning a thorny validation problem into clean launch-readiness evidence.</b></p>
+
+        <div class="block">
+          <div class="block-label">Research questions</div>
+          <ul class="rq">
+            <li><span class="tag" style="color:var(--c-ent)">RQ1</span><span>Does the tool's telemetry accurately capture real user behavior?</span></li>
+            <li><span class="tag" style="color:var(--c-ent)">RQ2</span><span>Does running it degrade the experience of the user's other tools?</span></li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Method · quasi-experiment + qualitative</div>
+          <ul>
+            <li>Chose a <b>quasi-experimental design</b> with qualitative analysis: participants recorded 10–15 minutes of their real daily work so I could validate the tool's log output against six discrete behaviors (mouse move, click, scroll, and others) across their full, natural toolset, surfacing pain points a scripted task would miss.</li>
+            <li>Led the <b>video analysis</b> and partnered with engineering to map log data to observed activity, the core validation that the telemetry was trustworthy.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Operating under real constraints</div>
+          <ul>
+            <li>The early-stage tool needed engineering help to install, so I ran a <b>batched rollout</b>: a first cohort of four absorbed the install and reliability issues, a second cohort ran clean once those were fixed, and a third stayed in reserve, protecting both participant time and the timeline.</li>
+            <li>Served as the <b>liaison between engineering and recruiting</b>, coordinating installs end to end so sessions started smoothly.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Outcome</div>
+          <div class="kpis">
+            <div class="kpi"><div class="kpi-l">Telemetry</div><div class="kpi-v" style="color:var(--c-ent)">Validated</div><div class="kpi-s">log data confirmed against behavior</div></div>
+            <div class="kpi"><div class="kpi-l">Issues</div><div class="kpi-v">Resolved</div><div class="kpi-s">performance, usability, reliability</div></div>
+            <div class="kpi"><div class="kpi-l">Timeline</div><div class="kpi-v">3 wks</div><div class="kpi-s">agile, cross-functional delivery</div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS5: PhD RESEARCH -->
+    <article class="cs reveal">
+      <div class="cs-top" style="background:var(--c-phd)"></div>
+      <div class="cs-header">
+        <div>
+          <div class="cs-id" style="color:var(--c-phd)">Case study 05 · Doctoral research · published in JAMS</div>
+          <div class="cs-title">Repeated Voice: a method to reduce online customer revenge</div>
+        </div>
+        <span class="cs-badge" style="color:var(--c-phd);background:var(--c-phd-bg)">Behavioral · longitudinal</span>
+      </div>
+      <div class="cs-body">
+        <p class="cs-summary">My doctoral research asked a question every service business faces: after a failure, can you actually reduce a customer's anger and desire for revenge? The common assumption is that time heals. Across two longitudinal field experiments with real online complainers, I tested that, and found <b>time alone does not heal; structured "sensemaking" surveys do.</b> The work was published in the Journal of the Academy of Marketing Science.</p>
+
+        <div class="quote" style="border-color:var(--c-phd)">"Time heals all wounds" is wrong. Giving people a structured way to process the experience is what heals.</div>
+
+        <div class="block">
+          <div class="block-label">Research questions</div>
+          <ul class="rq">
+            <li><span class="tag" style="color:var(--c-phd)">RQ1</span><span>How does repeated measurement influence revenge responses over time?</span></li>
+            <li><span class="tag" style="color:var(--c-phd)">RQ2</span><span>Do cognitive vs. emotional responses follow the same pattern?</span></li>
+            <li><span class="tag" style="color:var(--c-phd)">RQ3</span><span>How do survey content and format change the effect?</span></li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Method · two longitudinal field experiments</div>
+          <ul>
+            <li><b>Real complainers, real platforms:</b> participants were genuine online complainers (via ConsumerAffairs.com and a coalition loyalty program), surveyed in four waves over one to two months; a true longitudinal design, not a lab study.</li>
+            <li><b>Study 1</b> tested multiple surveys vs. a single survey; <b>Study 2</b> (initial frame ~12,000 people, 5 conditions) isolated the effect of content (cognition only, emotion only, or both) and format (close- vs. open-ended).</li>
+            <li><b>Rigor:</b> confirmatory and exploratory factor analysis, manipulation checks with 15 expert judges, attrition and self-selection testing, and LIWC linguistic analysis comparing participants to non-participants.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-label">What I found</div>
+          <div class="duo">
+            <div class="panel"><h5>The mechanism</h5><ul><li>Repeated, well-designed surveys let customers re-process the event and vent emotion, building "benevolent trust" toward the firm.</li><li>Surveys covering <b>both</b> cognition and emotion outperform either alone.</li></ul></div>
+            <div class="panel"><h5>The cautions</h5><ul><li>Close-ended beats open-ended; open-ended writing can amplify anger instead.</li><li>Emotion-only, repeated, can backfire into rumination.</li><li>Indirect (third-party) channels aid healing more than the faulty firm asking directly.</li></ul></div>
+          </div>
+          <div class="finding" style="background:var(--c-phd-bg)">
+            <div class="ft" style="color:var(--c-phd)">Why it belongs in a UX portfolio</div>
+            <p>This is survey instrument design as behavioral intervention: the same discipline behind every feedback flow, NPS program, and post-incident experience. It is also the trust-and-adoption research that grounds my AI work.</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Publication &amp; recognition</div>
+          <p style="font-size:12.5px;color:var(--t-secondary);line-height:1.6;margin-bottom:14px">Grégoire, Khamitov, Carrillat &amp; Rohani (2024). The attenuation effects of time and "sensemaking" surveys on customer revenge. <i>Journal of the Academy of Marketing Science.</i> Featured by AMS Sparks.</p>
+          <div class="cta-row">
+            <a class="cta" style="color:var(--c-phd);border-color:var(--c-phd)" href="https://link.springer.com/article/10.1007/s11747-024-01046-5" target="_blank" rel="noopener">Read the paper →</a>
+            <a class="cta" style="color:var(--c-phd);border-color:var(--c-phd)" href="https://www.ams-web.org/sparks/how-to-reduce-customer-anger-after-a-service-failure" target="_blank" rel="noopener">AMS Sparks feature →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS5: FORTUNE 500 -->
+    <article class="cs reveal">
+      <div class="cs-top" style="background:var(--c-quant)"></div>
+      <div class="cs-header">
+        <div>
+          <div class="cs-id" style="color:var(--c-quant)">Case study 06 · Fortune 500 technology company</div>
+          <div class="cs-title">Prioritizing the employee experience at scale</div>
+        </div>
+        <span class="cs-badge" style="color:var(--c-quant);background:var(--c-quant-bg)">Quantitative</span>
+      </div>
+      <div class="cs-body">
+        <p class="cs-summary">A global technology corporation needed to choose where to invest across its internal employee platforms. Every journey looked important; leadership lacked a defensible, data-driven way to prioritize. I was engaged as an expert quantitative UX researcher to <b>rank 25 employee journeys</b> and identify what actually drives satisfaction.</p>
+
+        <div class="block">
+          <div class="block-label">Method</div>
+          <ul>
+            <li><b>MaxDiff (best-worst scaling)</b> to force the trade-offs that rating scales hide; fielded to ~5,900 U.S. employees, ~600 completes in one week (95% CI, ±4% margin of error).</li>
+            <li><b>Balanced Incomplete Block Design</b> generated in R for statistically fair choice sets; each respondent judged 10 to 12 randomized sets of five journeys.</li>
+            <li><b>Hierarchical Bayes modeling</b> estimated utility scores per journey, per respondent, surfacing preference structure that averages flatten. Tools: Qualtrics; R (bayesm, support.BWS2, ggplot2).</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Top journeys by modeled utility</div>
+          <table>
+            <thead><tr><th>Journey</th><th class="num">Utility</th><th style="width:34%"></th></tr></thead>
+            <tbody>
+              <tr><td>Mental health &amp; well-being support</td><td class="num">84.6</td><td><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--c-quant)"></div></div></td></tr>
+              <tr><td>Internal career mobility</td><td class="num">79.2</td><td><div class="bar-track"><div class="bar-fill" style="width:94%;background:var(--c-quant)"></div></div></td></tr>
+              <tr><td>Onboarding process</td><td class="num">72.4</td><td><div class="bar-track"><div class="bar-fill" style="width:86%;background:var(--c-quant)"></div></div></td></tr>
+              <tr><td>Feedback &amp; recognition</td><td class="num">65.1</td><td><div class="bar-track"><div class="bar-fill" style="width:77%;background:var(--c-quant)"></div></div></td></tr>
+              <tr><td>Access to manager support</td><td class="num">62.9</td><td><div class="bar-track"><div class="bar-fill" style="width:74%;background:var(--c-quant)"></div></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Impact</div>
+          <div class="kpis">
+            <div class="kpi"><div class="kpi-l">Journeys ranked</div><div class="kpi-v">25</div><div class="kpi-s">with one defensible method</div></div>
+            <div class="kpi"><div class="kpi-l">Responses modeled</div><div class="kpi-v">600+</div><div class="kpi-s">at the individual level</div></div>
+            <div class="kpi"><div class="kpi-l">Satisfaction lift</div><div class="kpi-v" style="color:var(--c-quant)">6%</div><div class="kpi-s">the following quarter</div></div>
+          </div>
+          <ul style="margin-top:16px">
+            <li>The surprising weight on mental well-being and internal mobility reshaped leadership assumptions; resources shifted toward top-ranked journeys, informing two quarters of UX and People Ops roadmaps.</li>
+            <li><b>What stays with me:</b> MaxDiff is most powerful exactly when everything feels important, and strong methods only become action when paired with deliberate stakeholder engagement.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section" id="expertise">
+    <div class="section-label">03 — Methods</div>
+    <div class="section-title">A mixed-methods toolkit</div>
+    <div class="section-desc">Selected by the question, not by habit. Equally comfortable in statistical modeling and in a one-on-one interview.</div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <h4><span class="sw" style="background:var(--c-quant)"></span>Quantitative</h4>
+        <div class="exp-tags">
+          <span class="tagchip">MaxDiff / best-worst scaling</span><span class="tagchip">Hierarchical Bayes</span><span class="tagchip">Survey &amp; experimental design</span><span class="tagchip">Longitudinal field experiments</span><span class="tagchip">CFA / EFA</span><span class="tagchip">Behavioral data synthesis</span><span class="tagchip">R · Python · SQL · SPSS</span>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <h4><span class="sw" style="background:var(--c-method)"></span>Qualitative</h4>
+        <div class="exp-tags">
+          <span class="tagchip">In-depth &amp; SME interviews</span><span class="tagchip">Thematic analysis</span><span class="tagchip">Matrix analysis</span><span class="tagchip">Cognitive testing</span><span class="tagchip">Think-aloud protocols</span><span class="tagchip">Affinity &amp; journey mapping</span><span class="tagchip">Competitive audits</span>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <h4><span class="sw" style="background:var(--c-ai)"></span>AI &amp; technical</h4>
+        <div class="exp-tags">
+          <span class="tagchip">LLMs · RAG · agentic systems</span><span class="tagchip">Prompt &amp; context engineering</span><span class="tagchip">Human-AI evaluation</span><span class="tagchip">BPMN process modeling</span><span class="tagchip">AI-assisted analysis</span><span class="tagchip">AI-assisted development</span>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <h4><span class="sw" style="background:var(--c-build)"></span>Practice &amp; impact</h4>
+        <div class="exp-tags">
+          <span class="tagchip">Research strategy &amp; scoping</span><span class="tagchip">Stakeholder alignment</span><span class="tagchip">Executive readouts</span><span class="tagchip">Cross-functional partnership</span><span class="tagchip">Roadmap prioritization</span><span class="tagchip">Framework design &amp; adoption</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section" id="timeline">
+    <div class="section-label">04 — Timeline</div>
+    <div class="section-title">From applied research to a PhD to product</div>
+    <div class="section-desc">A path through enterprise technology, academic research, and UX research inside two of the world's largest engineering organizations.</div>
+    <ul class="tl">
+      <li class="tl-item reveal"><div class="tl-year">2025</div><div><div class="tl-org">Bellefolio</div><div class="tl-role">Founder &amp; Product Lead · founder-led UX research, AI marketplace 0→1</div></div></li>
+      <li class="tl-item reveal"><div class="tl-year">2024</div><div><div class="tl-org">Stealth AI Startup</div><div class="tl-role">Lead AI &amp; UX Research Strategist · trustworthy AI for regulated workflows</div></div></li>
+      <li class="tl-item reveal"><div class="tl-year">2022</div><div><div class="tl-org">Meta <span style="color:var(--t-muted);font-weight:400;font-size:12px">(Contract)</span></div><div class="tl-role">UX Researcher, Developer Experience · 2022–2024</div></div></li>
+      <li class="tl-item reveal"><div class="tl-year">2019</div><div><div class="tl-org">Saint Mary's College of CA &amp; University of Saskatchewan</div><div class="tl-role">Tenure-track Marketing Faculty · 2019–2022 · research, teaching &amp; service · Canada Top Marketing Professor (2022)</div></div></li>
+      <li class="tl-item reveal"><div class="tl-year">2018</div><div><div class="tl-org">Google <span style="color:var(--t-muted);font-weight:400;font-size:12px">(Contract)</span></div><div class="tl-role">Senior Quantitative UX Researcher · 2018–2019</div></div></li>
+      <li class="tl-item reveal"><div class="tl-year">2014</div><div><div class="tl-org">HEC Montréal</div><div class="tl-role">PhD, Marketing &amp; Consumer Behavior · 2-year Postdoctoral Fellowship, service marketing &amp; consumer behavior · JAMS 2024</div></div></li>
+      <li class="tl-item reveal"><div class="tl-year">2006</div><div><div class="tl-org">Huawei Technologies</div><div class="tl-role">Enterprise Marketing Product Manager · 2006–2009 · carrier-grade networking</div></div></li>
+    </ul>
+  </div>
+
+  <footer id="contact">
+    <h3>Let's talk research</h3>
+    <p>Happy to go deeper on any method, decision, or trade-off in these studies.</p>
+    <a class="btn" href="mailto:mina.rohani1359@gmail.com">Email me</a>
+    <div class="foot-links">
+      <a href="https://www.linkedin.com/in/rohanimina" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://bellefolio.vercel.app/" target="_blank" rel="noopener">Bellefolio</a>
+    </div>
+    <p class="colophon">Mina Rohani · San Francisco Bay Area</p>
+  </footer>
+
+</div>
+
+<script>
+  const items=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+    items.forEach(el=>io.observe(el));
+  } else { items.forEach(el=>el.classList.add('in')); }
+</script>
+
+</body>
+</html>
