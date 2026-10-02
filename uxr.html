@@ -20,6 +20,8 @@
   --c-quant:#C06A2E; --c-quant-bg:#FBEFE3;
   --c-phd:#B33B6B; --c-phd-bg:#FBE9F0;
   --c-method:#4E8A5E;
+  --c-ent:#4E8A5E; --c-ent-bg:#EAF3ED;
+  --c-cog:#3F6E8C; --c-cog-bg:#E8F0F5;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -225,7 +227,7 @@ footer p{font-size:13.5px;color:var(--t-secondary);max-width:46ch;margin:0 auto 
   <div class="section" id="work">
     <div class="section-label">02 — Case studies</div>
     <div class="section-title">From question to decision</div>
-    <div class="section-desc">Rigorous research, deliberately carried through to the decision: a product I researched and built, an AI system's architecture, qualitative insight at scale, a pre-launch validation, published behavioral science, and a Fortune 500 investment roadmap.</div>
+    <div class="section-desc">Rigorous research, deliberately carried through to the decision: a product I researched and built, an AI system's architecture, a switching-study design for pre-launch AI hardware, qualitative insight at scale, a pre-launch validation, published behavioral science, and a Fortune 500 investment roadmap.</div>
 
     <!-- CS1: BELLEFOLIO -->
     <article class="cs reveal">
@@ -370,12 +372,94 @@ footer p{font-size:13.5px;color:var(--t-secondary);max-width:46ch;margin:0 auto 
       </div>
     </article>
 
+    <!-- CS3: PRE-LAUNCH CONSUMER AI HARDWARE -->
+    <article class="cs reveal">
+      <div class="cs-top" style="background:var(--c-cog)"></div>
+      <div class="cs-header">
+        <div>
+          <div class="cs-id" style="color:var(--c-cog)">Case study 03 · Pre-launch consumer AI hardware · research &amp; measurement design</div>
+          <div class="cs-title">Switchability and beta measurement: designing the research before an AI device ships</div>
+        </div>
+        <span class="cs-badge" style="color:var(--c-cog);background:var(--c-cog-bg)">Study design · proposal</span>
+      </div>
+      <div class="cs-body">
+        <p class="cs-summary">New AI hardware has a novelty problem: people try it out of curiosity, and usage drops once the curiosity wears off, so early sign-ups and early engagement can look like demand when they aren't. A pre-launch startup building an AI device for the US market needed two answers before committing launch spend: who would actually switch to it, and which messages bring in people who stay after the novelty fades. I designed the research program and the measurement system to answer both. This is a plan, not a fielded study; <b>its value is in the method choices, each one built to stop a convenient answer from passing as evidence.</b></p>
+
+        <div class="quote" style="border-color:var(--c-cog)">"Do people want a more capable tool, or a tool that asks less of them?"</div>
+
+        <div class="block">
+          <div class="block-label">Research questions</div>
+          <ul class="rq">
+            <li><span class="tag" style="color:var(--c-cog)">RQ1</span><span>Who is genuinely reachable and convertible, defined by behavior rather than demographics?</span></li>
+            <li><span class="tag" style="color:var(--c-cog)">RQ2</span><span>What actually drives switching: more capability, or less mental load?</span></li>
+            <li><span class="tag" style="color:var(--c-cog)">RQ3</span><span>Which channels and messages bring in users who are still active in week two, not just users who sign up?</span></li>
+          </ul>
+          <div class="phases" style="margin-top:14px">
+            <span class="phase"><span class="n" style="color:var(--c-cog)">1</span>Behavioral segmentation</span>
+            <span class="phase"><span class="n" style="color:var(--c-cog)">2</span>Switcher interviews</span>
+            <span class="phase"><span class="n" style="color:var(--c-cog)">3</span>Rival-hypothesis analysis</span>
+            <span class="phase"><span class="n" style="color:var(--c-cog)">4</span>Funnel instrumentation</span>
+            <span class="phase"><span class="n" style="color:var(--c-cog)">5</span>Retention read</span>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Method choices, and why</div>
+          <ul>
+            <li><b>Recruit people who already switched.</b> People still using a tool tend to defend it or go quiet about what holds them back; people who left can describe the actual trigger that pushed them out, rather than a hypothetical intent.</li>
+            <li><b>Split switchers by direction, 4 and 4.</b> Half moved to a more capable product, half to a simpler one. If "less mental load" is the real driver, it should surface in both groups' accounts, not only among people who simplified.</li>
+            <li><b>Set what counts as proof before fieldwork.</b> Decision criteria for each hypothesis are written first, so results can't be reread to fit the preferred story.</li>
+            <li><b>Guard the screener.</b> With small samples, a screener can quietly select for the answer the team hopes to hear; recruitment runs on observed behavior, not stated frustration.</li>
+            <li><b>Segment by trigger moment.</b> Three behavioral cohorts, each tied to the moment the need peaks (before meetings, at the end of the day, in transit), so one set of definitions runs the ads, the pages, and the beta cohorts.</li>
+          </ul>
+          <div class="finding" style="background:var(--c-cog-bg)">
+            <div class="ft" style="color:var(--c-cog)">The framing that anchored the study</div>
+            <p>The target customer is defined by <b>cognitive tax</b>, not demographics: how much mental work their current tools demand. That turns the product story from specs into relief, and it makes the segmentation testable.</p>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Measurement · track who stays, not who signs up</div>
+          <div class="phases" style="margin-bottom:14px">
+            <span class="phase"><span class="n" style="color:var(--c-cog)">→</span>Click, tagged by channel</span>
+            <span class="phase"><span class="n" style="color:var(--c-cog)">→</span>Sign-up + "What made you try it?"</span>
+            <span class="phase"><span class="n" style="color:var(--c-cog)">→</span>First moment of value</span>
+            <span class="phase"><span class="n" style="color:var(--c-cog)">→</span>Still active in week two</span>
+          </div>
+          <ul>
+            <li>Week one reads early value, which novelty can inflate; <b>week two reads habit</b>, broken out by the channel and message each user came from.</li>
+            <li>A behavioral warning sign of overwhelm: users who sample many features and return to none.</li>
+            <li>One shared scorecard so qualitative findings and funnel data are read together by product, marketing, and leadership.</li>
+          </ul>
+          <div class="kpis" style="margin-top:14px">
+            <div class="kpi"><div class="kpi-l">Hypotheses</div><div class="kpi-v" style="color:var(--c-cog)">2 rival</div><div class="kpi-s">tested head to head, criteria set first</div></div>
+            <div class="kpi"><div class="kpi-l">Sample logic</div><div class="kpi-v">4 + 4</div><div class="kpi-s">switchers, split by direction</div></div>
+            <div class="kpi"><div class="kpi-l">North star</div><div class="kpi-v">Week 2</div><div class="kpi-s">retention by channel of origin</div></div>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-label">Decisions it was built to inform</div>
+          <ul>
+            <li><b>Hardware positioning:</b> if "less mental load" wins, the launch sells relief, not specs, and that is settled before launch spend.</li>
+            <li><b>Onboarding:</b> ask less of new users on day one; the product speaks up only when someone needs to act.</li>
+            <li><b>Budget:</b> fund the channels that bring week-two users, not the ones that bring the most sign-ups.</li>
+          </ul>
+          <div class="finding" style="background:var(--bg);border:1px solid var(--border);margin-top:14px">
+            <div class="ft" style="color:var(--c-cog)">Beyond this product</div>
+            <p style="font-size:13.5px">The pattern transfers to any new AI category: <b>learn from people who already switched, test rival explanations head to head, and judge acquisition by who is still there after the novelty fades.</b></p>
+          </div>
+          <p style="font-size:11.5px;color:var(--t-muted);margin-top:16px;line-height:1.5">Proposed research and measurement plan, 2026. Company name, product details, and internal data withheld.</p>
+        </div>
+      </div>
+    </article>
+
     <!-- CS3: META -->
     <article class="cs reveal">
       <div class="cs-top" style="background:var(--c-meta)"></div>
       <div class="cs-header">
         <div>
-          <div class="cs-id" style="color:var(--c-meta)">Case study 03 · Meta · Developer Experience</div>
+          <div class="cs-id" style="color:var(--c-meta)">Case study 04 · Meta · Developer Experience</div>
           <div class="cs-title">Scaling qualitative insight for the developer experience</div>
         </div>
         <span class="cs-badge" style="color:var(--c-meta);background:var(--c-meta-bg)">Qual at scale</span>
@@ -427,7 +511,7 @@ footer p{font-size:13.5px;color:var(--t-secondary);max-width:46ch;margin:0 auto 
       <div class="cs-top" style="background:var(--c-ent)"></div>
       <div class="cs-header">
         <div>
-          <div class="cs-id" style="color:var(--c-ent)">Case study 04 · Meta · pre-launch validation (Teleport)</div>
+          <div class="cs-id" style="color:var(--c-ent)">Case study 05 · Meta · pre-launch validation (Teleport)</div>
           <div class="cs-title">Validating a telemetry tool before launch</div>
         </div>
         <span class="cs-badge" style="color:var(--c-ent);background:var(--c-ent-bg)">Quasi-experiment · launch readiness</span>
@@ -475,7 +559,7 @@ footer p{font-size:13.5px;color:var(--t-secondary);max-width:46ch;margin:0 auto 
       <div class="cs-top" style="background:var(--c-phd)"></div>
       <div class="cs-header">
         <div>
-          <div class="cs-id" style="color:var(--c-phd)">Case study 05 · Doctoral research · published in JAMS</div>
+          <div class="cs-id" style="color:var(--c-phd)">Case study 06 · Doctoral research · published in JAMS</div>
           <div class="cs-title">Repeated Voice: a method to reduce online customer revenge</div>
         </div>
         <span class="cs-badge" style="color:var(--c-phd);background:var(--c-phd-bg)">Behavioral · longitudinal</span>
@@ -531,7 +615,7 @@ footer p{font-size:13.5px;color:var(--t-secondary);max-width:46ch;margin:0 auto 
       <div class="cs-top" style="background:var(--c-quant)"></div>
       <div class="cs-header">
         <div>
-          <div class="cs-id" style="color:var(--c-quant)">Case study 06 · Fortune 500 technology company</div>
+          <div class="cs-id" style="color:var(--c-quant)">Case study 07 · Fortune 500 technology company</div>
           <div class="cs-title">Prioritizing the employee experience at scale</div>
         </div>
         <span class="cs-badge" style="color:var(--c-quant);background:var(--c-quant-bg)">Quantitative</span>
